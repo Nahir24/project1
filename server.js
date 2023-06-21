@@ -1,8 +1,10 @@
 const app = require('./app')
-require('donenv').config()
+require('dotenv').config()
+const { swaggerDocs } = require("./swagger/swagger")
 
 const port = process.env.PORT || 3000
 
 app.listen( port, () => {
-    console.log()
+    console.log("server listeng to", port);
+    swaggerDocs(app, port)
 })
